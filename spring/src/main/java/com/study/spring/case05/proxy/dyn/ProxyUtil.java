@@ -22,22 +22,16 @@ public class ProxyUtil {
 			Object result = null;
 			try {
 				// 前置通知
-				System.out.println("前置 Log:" + 
-								   object.getClass() + "," + 
-								   method.getName() + "," + 
-								   Arrays.toString(args));
+				MyLogger.before(object.getClass(), method.getName(), args);
 				result = method.invoke(object, args); // 代理呼叫方法
 				return result;
 			} catch (Exception e) {
 				//e.printStackTrace(System.out);
 				// 例外異常通知
-				System.out.println("例外 Log:" + object.getClass() + "," + e);
+				MyLogger.throwing(object.getClass(), e.getMessage());
 			} finally {
 				// 後置通知
-				System.out.println("後置 Log:" + 
-						   object.getClass() + "," + 
-						   method.getName() + "," + 
-						   result);
+				MyLogger.end(object.getClass(), method.getName(), result);
 			}
 			return result;
 		}; 
