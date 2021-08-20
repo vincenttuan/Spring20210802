@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Arrays;
 
+// 動態代理
 public class ProxyUtil {
 	private Object object;
 
