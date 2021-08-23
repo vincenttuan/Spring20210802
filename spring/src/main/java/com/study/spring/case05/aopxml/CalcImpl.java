@@ -1,4 +1,4 @@
-package com.study.spring.case05.aop;
+package com.study.spring.case05.aopxml;
 
 import org.springframework.stereotype.Component;
 
