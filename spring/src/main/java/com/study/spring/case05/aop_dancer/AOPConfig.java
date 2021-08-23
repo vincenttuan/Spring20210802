@@ -10,6 +10,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 @ComponentScan
 public class AOPConfig {
+	@Bean
+	public Audience audience() {
+		return new Audience();
+	}
 	
 	@Bean(name = "dancer")
 	public Performance dancer() {
