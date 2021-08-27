@@ -20,4 +20,9 @@ public class AOPConfig {
 		return new Dancer();
 	}
 	
+	@Bean
+	Introducter getIntroducter() {
+		return new Introducter();
+	}
+	
 }
