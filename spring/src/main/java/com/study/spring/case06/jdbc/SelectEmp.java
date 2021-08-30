@@ -7,8 +7,8 @@ import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 
 public class SelectEmp {
 
@@ -46,6 +46,12 @@ public class SelectEmp {
 			return emp;
 		});
 		System.out.println(listEmps);
+		
+		// 多筆查詢-BeanPropertyRowMapper
+		// 類似於 BeanUtils
+		sql = "select eid, ename, age, createtime from emp";
+		List<Emp> listEmps2 = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Emp.class));
+		System.out.println(listEmps2);
 	}
 
 }
