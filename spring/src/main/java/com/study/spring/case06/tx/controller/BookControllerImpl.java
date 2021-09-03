@@ -18,8 +18,9 @@ public class BookControllerImpl implements BookController {
 	}
 
 	@Override
-	public void buyBooks(Integer wid, Integer... bid) {
-		
+	public void buyBooks(Integer wid, Integer... bids) {
+		bookService.buyMany(wid, bids);
+		System.out.println("buy many books ok");
 	}
 	
 }
